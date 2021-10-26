@@ -9,6 +9,7 @@ namespace LegoInterview
         public InventoryItem demanding;
         public Sprite actionIcon;
         public SpriteRenderer demandBubble;
+        public bool satisfied;
 
         [Header("Movement")]
         NavMeshAgent navAgent;
@@ -42,6 +43,7 @@ namespace LegoInterview
             {
                 Player.mainPlayer.CarryNewItem(null);
                 LeaveShop();
+                satisfied = true;
             }
         }
 

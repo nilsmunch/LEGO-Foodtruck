@@ -1,14 +1,9 @@
-﻿using LegoInterview;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
 
 namespace LegoInterview
 {
-    public class ItemTrashBin : WorldInteractable
+    public class ItemTrashbin : WorldInteractable
     {
-        public InventoryItem dispensing;
         public Sprite trashIcon;
 
         private void OnTriggerEnter(Collider other)
