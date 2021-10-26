@@ -10,6 +10,7 @@ namespace LegoInterview
         static public Player mainPlayer;
         [Header("Movement")]
         public float movementSpeed = 10f;
+        public Transform baseOfMotion;
 
         [Header("Inventory")]
         public InventoryItem carry;
@@ -33,12 +34,28 @@ namespace LegoInterview
         public void MoveInDirection(Vector3 movement)
         {
             if (movement == Vector3.zero) return;
-            transform.position += movement * Time.deltaTime * movementSpeed;
 
             float singleStep = movementSpeed * Time.deltaTime;
             Vector3 newDirection = Vector3.RotateTowards(transform.forward, movement, singleStep, 0.0f);
-            Debug.DrawRay(transform.position, newDirection, Color.red);
+
+            // Rotate to face new direction
             transform.rotation = Quaternion.LookRotation(newDirection);
+
+            // Raycast to check for bumping into things
+            RaycastHit hit;
+            int layerMask = 1 << 2 << 9;
+            layerMask = ~layerMask;
+            float scanDistance = 3f;
+            if (Physics.Raycast(baseOfMotion.position, newDirection, out hit, scanDistance, layerMask))
+            {
+                Debug.DrawRay(baseOfMotion.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+            }
+            else
+            {
+                Debug.DrawRay(baseOfMotion.position, transform.TransformDirection(Vector3.forward) * scanDistance, Color.white);
+                transform.position += movement * Time.deltaTime * movementSpeed;
+            }
+
         }
 
     }

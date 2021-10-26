@@ -16,7 +16,6 @@ namespace LegoInterview
         private void OnTriggerExit(Collider other)
         {
             if (other.gameObject.layer != 9) return;
-            Debug.Log("Left");
             InteractionManager.clearFocus();
         }
 

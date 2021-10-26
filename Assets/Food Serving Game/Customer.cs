@@ -1,19 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.AI;
 
 
 namespace LegoInterview
 {
     public class Customer : WorldInteractable
     {
+        [Header("Item trade")]
         public InventoryItem demanding;
         public Sprite actionIcon;
         public SpriteRenderer demandBubble;
 
+        [Header("Movement")]
+        NavMeshAgent navAgent;
+
         private void Awake()
         {
             demandBubble.sprite = demanding.icon;
+            navAgent = GetComponent<NavMeshAgent>();
         }
 
         private void OnTriggerEnter(Collider other)
