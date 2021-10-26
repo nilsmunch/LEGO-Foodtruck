@@ -43,7 +43,7 @@ namespace LegoInterview
 
             // Raycast to check for bumping into things
             RaycastHit hit;
-            int layerMask = 1 << 2 << 9;
+            int layerMask = 1 << 9;
             layerMask = ~layerMask;
             float scanDistance = 3f;
             if (Physics.Raycast(baseOfMotion.position, newDirection, out hit, scanDistance, layerMask))

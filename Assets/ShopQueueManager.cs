@@ -16,7 +16,7 @@ namespace LegoInterview
             GameObject newCustomer = Instantiate(customer);
             newCustomer.transform.position = startingPoint.position;
             Customer customerObj = newCustomer.GetComponent<Customer>();
-            customerObj.SetDestinationPoint(queuePoints[0].position);
+            customerObj.SetDestinationPoint(queuePoints[Random.Range(0,queuePoints.Count)].position);
             customerObj.spawnedAt = startingPoint.position;
         }
 
