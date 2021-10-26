@@ -27,6 +27,10 @@ namespace LegoInterview
                 movement += new Vector3(1, 0, 0);
             }
 
+            if (Input.GetKey(KeyCode.Space)) {
+                InteractionManager.interactWithActiveObject();
+            }
+
             controlledPlayer.MoveInDirection(movement);
         }
     }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,6 +22,11 @@ namespace LegoInterview
 
         public virtual Sprite interactionIcon() {
             return null;
+        }
+
+        public virtual void Interact()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -15,6 +15,10 @@ namespace LegoInterview
             InteractionManager.focusInteractable(this);
         }
 
+        public override void Interact() {
+            Player.mainPlayer.CarryNewItem(dispensing);
+        }
+
         public override Sprite interactionIcon()
         {
             return dispensing.icon;

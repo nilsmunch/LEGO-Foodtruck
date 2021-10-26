@@ -14,6 +14,12 @@ namespace LegoInterview
             interactableFocused = interactable;
             HUDManager.DisplayInteraction(interactable.interactionIcon());
         }
+
+        public static void interactWithActiveObject() {
+            if (interactableFocused == null) return;
+            interactableFocused.Interact(); 
+        }
+
         public static void clearFocus()
         {
             interactableFocused = null;
