@@ -26,6 +26,9 @@ namespace LegoInterview
             InteractionManager.focusInteractable(this);
         }
 
+        public void MoveToPoint(Vector3 destination) {
+            navAgent.SetDestination(destination);
+        }
 
         public override void Interact()
         {
@@ -35,7 +38,7 @@ namespace LegoInterview
             }
         }
 
-        public override Sprite interactionIcon()
+        public override Sprite InteractionIcon()
         {
             return actionIcon;
         }

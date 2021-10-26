@@ -19,7 +19,7 @@ namespace LegoInterview
             InteractionManager.clearFocus();
         }
 
-        public virtual Sprite interactionIcon() {
+        public virtual Sprite InteractionIcon() {
             return null;
         }
 

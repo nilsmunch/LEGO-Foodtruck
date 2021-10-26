@@ -12,7 +12,7 @@ namespace LegoInterview
         public static void focusInteractable(WorldInteractable interactable) {
 
             interactableFocused = interactable;
-            HUDManager.DisplayInteraction(interactable.interactionIcon());
+            HUDManager.DisplayInteraction(interactable.InteractionIcon());
         }
 
         public static void interactWithActiveObject() {

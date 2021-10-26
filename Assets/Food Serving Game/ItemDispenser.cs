@@ -19,7 +19,7 @@ namespace LegoInterview
             Player.mainPlayer.CarryNewItem(dispensing);
         }
 
-        public override Sprite interactionIcon()
+        public override Sprite InteractionIcon()
         {
             return dispensing.icon;
         }
