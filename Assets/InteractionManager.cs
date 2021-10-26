@@ -2,17 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractionManager : MonoBehaviour
+
+namespace LegoInterview
 {
-    // Start is called before the first frame update
-    void Start()
+    public class InteractionManager : MonoBehaviour
     {
-        
+        static WorldInteractable interactableFocused;
+
+        public static void focusInteractable(WorldInteractable interactable) {
+
+            interactableFocused = interactable;
+            HUDManager.DisplayInteraction(interactable.interactionIcon());
+        }
+        public static void clearFocus()
+        {
+            interactableFocused = null;
+            HUDManager.ClearInteraction();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

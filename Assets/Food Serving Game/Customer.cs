@@ -5,9 +5,10 @@ using UnityEngine;
 
 namespace LegoInterview
 {
-    public class ItemDispenser : WorldInteractable
+    public class Customer : WorldInteractable
     {
-        public InventoryItem dispensing;
+        public InventoryItem demanding;
+        public Sprite actionIcon;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -17,7 +18,7 @@ namespace LegoInterview
 
         public override Sprite interactionIcon()
         {
-            return dispensing.icon;
+            return actionIcon;
         }
     }
 }
