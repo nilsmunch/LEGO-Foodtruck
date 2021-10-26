@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-
 namespace LegoInterview
 {
     public class Customer : WorldInteractable
@@ -13,6 +12,7 @@ namespace LegoInterview
 
         [Header("Movement")]
         NavMeshAgent navAgent;
+        public Vector3 spawnedAt;
 
         private void Awake()
         {
@@ -26,8 +26,14 @@ namespace LegoInterview
             InteractionManager.focusInteractable(this);
         }
 
-        public void MoveToPoint(Vector3 destination) {
+        public void SetDestinationPoint(Vector3 destination) {
             navAgent.SetDestination(destination);
+        }
+
+        public void LeaveShop() {
+            demandBubble.enabled = false;
+            demanding = null;
+            SetDestinationPoint(spawnedAt);
         }
 
         public override void Interact()
@@ -35,6 +41,7 @@ namespace LegoInterview
             if (Player.mainPlayer.carry == demanding)
             {
                 Player.mainPlayer.CarryNewItem(null);
+                LeaveShop();
             }
         }
 
