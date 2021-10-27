@@ -10,8 +10,12 @@ I wanted to add some nice buildings in the background and found a model on Stud.
 I did a lightweight mesh baking and wiped the invisible knobs to keep it down a bit. I would have loved to do some deeper baking, but simply did not have the time.
 
 # Managed
+- Dispenser machines provide tier 1 items.
+- Processing machines convert tier 1 items to tier 2 items.
+- Customers spawn every 5 seconds, but cap at 5 customers at the same time.
 
 # Missing
 - Didn't manage to get some soundeffect nor decoration in.
 - No minifigs animated (as per pitched project desc.)
 - Interactables should be highlighted visually.
+- Testing
