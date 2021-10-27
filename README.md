@@ -15,6 +15,11 @@ I was only able to put around 8-9 hours in total into this, since I was under th
 I wanted to add some nice buildings in the background and found a model on Stud.io. It became quickly apparent that I needed to bake the mesh, since the batches count went well over 4000 for each building.
 I did a lightweight mesh baking and wiped the invisible knobs to keep it down a bit. I would have loved to do some deeper baking, but simply did not have the time.
 
+# Assets
+All objects in the game are imported from Stud.io.
+Logo font: brannboll by Manö Gresbäck
+Background music: Family Holiday by Studio Etude 
+
 # Managed
 - Dispenser machines provide tier 1 items.
 - Processing machines convert tier 1 items to tier 2 items.
