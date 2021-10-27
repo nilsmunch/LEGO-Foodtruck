@@ -11,7 +11,6 @@ namespace LegoInterview
         public InventoryItem demanding;
         float productionFuel = 0f;
         public float productionFuelStart = 0f;
-        public float productionFuelCap = 0f;
         public float fuelToProductionRate = 1f;
 
         [Header("Production Out")]
@@ -24,8 +23,9 @@ namespace LegoInterview
 
         [Header("HUD")]
         public SpriteRenderer demandingBackshadow;
-        public SpriteRenderer dispensingBackshadow;
         public SpriteRenderer demandingBubble;
+
+        public SpriteRenderer dispensingBackshadow;
         public SpriteRenderer dispensingBubble;
 
         private void Start()
@@ -74,18 +74,20 @@ namespace LegoInterview
 
         public override void Interact()
         {
-            if (Player.mainPlayer.CarriesItem(demanding)) {
-                productionFuel = 1f;
-                Player.mainPlayer.ClearCarriedItem();
-                UpdateRadialBubbles();
-                return;
-            }
-
             if (readyForPickup && Player.mainPlayer.HandsFree())
             {
                 Player.mainPlayer.CarryNewItem(dispensing);
                 readyForPickup = false;
                 productionComplete = 0f;
+                UpdateRadialBubbles();
+                return;
+            }
+
+            if (Player.mainPlayer.CarriesItem(demanding)) {
+                productionFuel = 1f;
+                Player.mainPlayer.ClearCarriedItem();
+                UpdateRadialBubbles();
+                return;
             }
         }
 

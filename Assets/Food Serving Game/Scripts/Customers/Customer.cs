@@ -45,6 +45,7 @@ namespace LegoInterview
         {
             if (Player.mainPlayer.CarriesItem(demanding))
             {
+                GameLoopManager.EarnScore(demanding.salePrice);
                 Player.mainPlayer.ClearCarriedItem();
                 LeaveShop();
                 satisfied = true;

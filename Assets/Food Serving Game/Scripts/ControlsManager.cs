@@ -9,6 +9,7 @@ namespace LegoInterview
         public Player controlledPlayer;
         void Update()
         {
+            if (!GameLoopManager.InCoreLoop()) return;
             Vector3 movement = new Vector3(0, 0, 0);
             if (Input.GetKey(KeyCode.W))
             {
@@ -27,7 +28,7 @@ namespace LegoInterview
                 movement += new Vector3(1, 0, 0);
             }
 
-            if (Input.GetKey(KeyCode.Space)) {
+            if (Input.GetKeyDown(KeyCode.Space)) {
                 InteractionManager.interactWithActiveObject();
             }
 

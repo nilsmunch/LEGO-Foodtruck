@@ -9,6 +9,7 @@ namespace LegoInterview
     public class InventoryItem : ScriptableObject
     {
         public Sprite icon;
+        public int salePrice = 0;
 
     }
 }
