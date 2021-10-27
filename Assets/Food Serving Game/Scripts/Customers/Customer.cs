@@ -17,8 +17,12 @@ namespace LegoInterview
 
         private void Awake()
         {
-            demandBubble.sprite = demanding.icon;
             navAgent = GetComponent<NavMeshAgent>();
+        }
+
+        private void Start()
+        {
+            demandBubble.sprite = demanding.icon;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -39,9 +43,9 @@ namespace LegoInterview
 
         public override void Interact()
         {
-            if (Player.mainPlayer.carry == demanding)
+            if (Player.mainPlayer.CarriesItem(demanding))
             {
-                Player.mainPlayer.CarryNewItem(null);
+                Player.mainPlayer.ClearCarriedItem();
                 LeaveShop();
                 satisfied = true;
             }

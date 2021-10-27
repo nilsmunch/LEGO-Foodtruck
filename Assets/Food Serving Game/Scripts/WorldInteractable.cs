@@ -19,6 +19,12 @@ namespace LegoInterview
             InteractionManager.clearFocus();
         }
 
+        internal float radialPercentage(float floatPercentage) {
+           float result = 360f - ((floatPercentage / 1f) * 360f);
+            if (result > 360f) result = 360f;
+            return result;
+        }
+
         public virtual Sprite InteractionIcon() {
             return null;
         }

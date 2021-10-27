@@ -183,6 +183,7 @@ MonoBehaviour:
   demanding: {fileID: 11400000, guid: 1b6145b1a92b35d488dc7aafa8711c60, type: 2}
   actionIcon: {fileID: 21300000, guid: d875376debe750242942b91d4eea6998, type: 3}
   demandBubble: {fileID: 5067498221903492738}
+  satisfied: 0
   spawnedAt: {x: 0, y: 0, z: 0}
 --- !u!136 &5067498221861586367
 CapsuleCollider:
@@ -212,7 +213,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

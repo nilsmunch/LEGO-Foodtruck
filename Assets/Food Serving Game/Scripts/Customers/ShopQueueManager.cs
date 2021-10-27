@@ -7,17 +7,27 @@ namespace LegoInterview
 {
     public class ShopQueueManager : MonoBehaviour
     {
-        public List<Transform> queuePoints;
+        [Header("Requests")]
+        public List<InventoryItem> requestTypes;
+        [Header("Spawning")]
         public GameObject customer;
+        public List<Transform> queuePoints;
         public Transform startingPoint;
+        public float SecondsBetweenSpawns = 5f;
+        public int SpawnedCap = 5;
 
-        void SpawnNewCustomer()
+        public void SpawnNewCustomer()
         {
+            Customer[] existingCustomers = GameObject.FindObjectsOfType<Customer>();
+
+            if (existingCustomers.Length >= SpawnedCap) return;
+
             GameObject newCustomer = Instantiate(customer);
             newCustomer.transform.position = startingPoint.position;
             Customer customerObj = newCustomer.GetComponent<Customer>();
             customerObj.SetDestinationPoint(queuePoints[Random.Range(0,queuePoints.Count)].position);
             customerObj.spawnedAt = startingPoint.position;
+            customerObj.demanding = requestTypes[Random.Range(0, requestTypes.Count)];
         }
 
         // Update is called once per frame
