@@ -37,6 +37,7 @@ namespace LegoInterview
             manager = this;
             gameState = GameState.MainMenu;
             gameoverView.SetActive(false);
+            mainMenu.SetActive(true);
             countdownLabel.text = string.Empty;
             timerLabel.text = string.Empty;
             scoreLabel.text = string.Empty;
