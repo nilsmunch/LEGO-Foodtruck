@@ -4,7 +4,8 @@
 Gameplay demo: https://lizardfactory.itch.io/lego-foodcourt
 
 Simple presentation: https://youtu.be/otgkkufxp7M
-Code walkthrough: 
+
+Code walkthrough: https://www.youtube.com/watch?v=v9dtVX4_K3E
 
 # Process
 I was given two thin cases and was asked to pick the one I preferred. I saw the Popcorn cart in **Case2_CreativityFocus** and immediately started doing a simple "Overcooked" style game.
