@@ -43,6 +43,8 @@ namespace LegoInterview
 
         public override void Interact()
         {
+            if (satisfied) return;
+            if (demanding == null) return;
             if (Player.mainPlayer.CarriesItem(demanding))
             {
                 GameLoopManager.EarnScore(demanding.salePrice);
