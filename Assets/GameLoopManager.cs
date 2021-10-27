@@ -73,7 +73,18 @@ namespace LegoInterview
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape)) {
-                gameState = (gameState == GameState.Paused ? GameState.MainMenu : GameState.Paused);
+                switch (gameState) {
+                    case GameState.Paused:
+                        timerLabel.text = Mathf.CeilToInt(roundTime).ToString();
+                        gameState = GameState.Maingame;
+                        queueManager.ToggleAgents(true);
+                        return;
+                    case GameState.Maingame:
+                        timerLabel.text = Mathf.CeilToInt(roundTime).ToString()+" Paused";
+                        gameState = GameState.Paused;
+                        queueManager.ToggleAgents(false);
+                        return;
+                }
             }
 
             switch (gameState) {

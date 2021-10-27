@@ -12,7 +12,7 @@ namespace LegoInterview
         public bool satisfied;
 
         [Header("Movement")]
-        NavMeshAgent navAgent;
+        public NavMeshAgent navAgent;
         public Vector3 spawnedAt;
 
         private void Awake()

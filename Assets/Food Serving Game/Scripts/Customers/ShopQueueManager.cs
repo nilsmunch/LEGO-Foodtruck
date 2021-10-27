@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace LegoInterview
 {
@@ -30,11 +31,21 @@ namespace LegoInterview
             customerObj.demanding = requestTypes[Random.Range(0, requestTypes.Count)];
         }
 
-        // Update is called once per frame
-        void OnGUI()
+        public void ToggleAgents(bool toggle)
+        {
+            Customer[] allCustomers = GameObject.FindObjectsOfType<Customer>();
+            foreach (Customer customer in allCustomers)
+            {
+                customer.navAgent.isStopped = !toggle;
+            }
+        }
+
+/*
+ void OnGUI()
         {
             if (GUILayout.Button("Spawn new customer")) SpawnNewCustomer();
         }
-    }
+  */
+        }
 
 }
