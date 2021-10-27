@@ -4570,7 +4570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 339e0e01f728d22439eb5685d89f8226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundInSeconds: 10
+  roundInSeconds: 90
   queueManager: {fileID: 710237305}
   scoreLabel: {fileID: 161949349}
   timerLabel: {fileID: 1932921609}
