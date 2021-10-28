@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace LegoInterview
 {
-
     public class Player : MonoBehaviour
     {
         static public Player mainPlayer;
