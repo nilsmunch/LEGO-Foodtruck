@@ -33,7 +33,7 @@ namespace LegoInterview
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.layer != 9) return;
-            InteractionManager.focusInteractable(this);
+            InteractionManager.FocusInteractable(this);
         }
 
         public void Update()

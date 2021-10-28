@@ -29,7 +29,7 @@ namespace LegoInterview
             }
 
             if (Input.GetKeyDown(KeyCode.Space)) {
-                InteractionManager.interactWithActiveObject();
+                InteractionManager.InteractWithActiveObject();
             }
 
             controlledPlayer.MoveInDirection(movement);

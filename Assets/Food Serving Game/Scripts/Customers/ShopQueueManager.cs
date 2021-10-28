@@ -20,7 +20,6 @@ namespace LegoInterview
         public void SpawnNewCustomer()
         {
             Customer[] existingCustomers = GameObject.FindObjectsOfType<Customer>();
-
             if (existingCustomers.Length >= SpawnedCap) return;
 
             GameObject newCustomer = Instantiate(customer);

@@ -1,13 +1,11 @@
 {
-    "name": "Tests",
+    "name": "Playmode",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "FoodServingGame"
     ],
-    "includePlatforms": [
-        "Editor"
-    ],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,

@@ -2,27 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace LegoInterview
 {
     public class InteractionManager : MonoBehaviour
     {
-        static WorldInteractable interactableFocused;
+        static WorldInteractable _interactableFocused;
 
-        public static void focusInteractable(WorldInteractable interactable) {
-
-            interactableFocused = interactable;
+        public static void FocusInteractable(WorldInteractable interactable) {
+            _interactableFocused = interactable;
             HUDManager.DisplayInteraction(interactable.InteractionIcon());
         }
 
-        public static void interactWithActiveObject() {
-            if (interactableFocused == null) return;
-            interactableFocused.Interact(); 
+        public static void InteractWithActiveObject() {
+            if (_interactableFocused == null) return;
+            _interactableFocused.Interact(); 
         }
 
-        public static void clearFocus()
+        public static void ClearFocus()
         {
-            interactableFocused = null;
+            _interactableFocused = null;
             HUDManager.ClearInteraction();
         }
     }

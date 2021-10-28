@@ -13,7 +13,6 @@ public class PlayerMovementTest
     public void SetUpTest()
     {
         SceneManager.LoadScene("MainGame");
-
     }
 
     [UnityTest]

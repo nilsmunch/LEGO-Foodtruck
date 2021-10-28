@@ -16,7 +16,7 @@ namespace LegoInterview
         private void OnTriggerExit(Collider other)
         {
             if (other.gameObject.layer != 9) return;
-            InteractionManager.clearFocus();
+            InteractionManager.ClearFocus();
         }
 
         internal float radialPercentage(float floatPercentage) {
