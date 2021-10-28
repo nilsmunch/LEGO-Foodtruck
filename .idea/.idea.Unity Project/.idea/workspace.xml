@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="080747e7-a9eb-4219-a40d-4764c13d2fb5" name="Changes" comment="" />
+    <list default="true" id="080747e7-a9eb-4219-a40d-4764c13d2fb5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity Project/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Food Serving Game/Scripts/Billboard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Food Serving Game/Scripts/Billboard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Food Serving Game/Scripts/GameLoopManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Food Serving Game/Scripts/GameLoopManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Food Serving Game/Scripts/HUDManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Food Serving Game/Scripts/HUDManager.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1635433682481</updated>
-      <workItem from="1635433689422" duration="89000" />
+      <workItem from="1635433689422" duration="1046000" />
     </task>
     <servers />
   </component>

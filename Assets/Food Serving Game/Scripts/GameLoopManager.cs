@@ -9,12 +9,12 @@ namespace LegoInterview
 {
     public class GameLoopManager : MonoBehaviour
     {
-        static GameLoopManager manager;
+        static GameLoopManager _manager;
         enum GameState { Unset, Countdown, Maingame, GameOver, Paused, MainMenu }
         [Header("Game rounds")]
-        float gamestartCountdown = 0f;
-        float newcustomerCooldown = 0f;
-        float roundTime;
+        float _gamestartCountdown = 0f;
+        float _newcustomerCooldown = 0f;
+        float _roundTime;
         public float roundInSeconds = 60f;
         public ShopQueueManager queueManager;
 
@@ -30,12 +30,12 @@ namespace LegoInterview
         public GameObject gameoverView;
        
 
-        static GameState gameState = GameState.Unset;
+        static GameState _gameState = GameState.Unset;
 
         private void Start()
         {
-            manager = this;
-            gameState = GameState.MainMenu;
+            _manager = this;
+            _gameState = GameState.MainMenu;
             gameoverView.SetActive(false);
             mainMenu.SetActive(true);
             countdownLabel.text = string.Empty;
@@ -45,22 +45,22 @@ namespace LegoInterview
 
         public void LaunchGameCountdown() {
             mainMenu.SetActive(false);
-            gameState = GameState.Countdown;
+            _gameState = GameState.Countdown;
             countdownLabel.enabled = true;
-            gamestartCountdown = 5f;
+            _gamestartCountdown = 5f;
             scorecounter = 0;
-            roundTime = roundInSeconds;
-            manager.scoreLabel.text = scorecounter + "$";
-            timerLabel.text = Mathf.CeilToInt(roundTime).ToString();
+            _roundTime = roundInSeconds;
+            _manager.scoreLabel.text = scorecounter + "$";
+            timerLabel.text = Mathf.CeilToInt(_roundTime).ToString();
         }
 
         public static bool InCoreLoop() {
-            return (gameState == GameState.Maingame);
+            return (_gameState == GameState.Maingame);
         }
 
         void InitializeMainGame() {
-            gameState = GameState.Maingame;
-            newcustomerCooldown = queueManager.SecondsBetweenSpawns;
+            _gameState = GameState.Maingame;
+            _newcustomerCooldown = queueManager.SecondsBetweenSpawns;
         }
         public void ReloadScene() {
             SceneManager.LoadScene("MainGame");
@@ -68,49 +68,49 @@ namespace LegoInterview
 
         public static void EarnScore(int addScore) {
             scorecounter += addScore;
-            manager.scoreLabel.text = scorecounter+"$";
+            _manager.scoreLabel.text = scorecounter+"$";
         } 
 
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape)) {
-                switch (gameState) {
+                switch (_gameState) {
                     case GameState.Paused:
-                        timerLabel.text = Mathf.CeilToInt(roundTime).ToString();
-                        gameState = GameState.Maingame;
+                        timerLabel.text = Mathf.CeilToInt(_roundTime).ToString();
+                        _gameState = GameState.Maingame;
                         queueManager.ToggleAgents(true);
                         return;
                     case GameState.Maingame:
-                        timerLabel.text = Mathf.CeilToInt(roundTime).ToString()+" Paused";
-                        gameState = GameState.Paused;
+                        timerLabel.text = Mathf.CeilToInt(_roundTime).ToString()+" Paused";
+                        _gameState = GameState.Paused;
                         queueManager.ToggleAgents(false);
                         return;
                 }
             }
 
-            switch (gameState) {
+            switch (_gameState) {
                 case GameState.Maingame:
-                    roundTime -= Time.deltaTime;
+                    _roundTime -= Time.deltaTime;
 
-                    timerLabel.text = Mathf.CeilToInt(roundTime).ToString();
+                    timerLabel.text = Mathf.CeilToInt(_roundTime).ToString();
 
-                    if (roundTime <= 0) {
-                        gameState = GameState.GameOver;
+                    if (_roundTime <= 0) {
+                        _gameState = GameState.GameOver;
                         gameoverView.SetActive(true);
                         return;
                     }
 
-                    newcustomerCooldown -= Time.deltaTime;
-                    if (newcustomerCooldown < 0) {
-                        newcustomerCooldown = queueManager.SecondsBetweenSpawns;
+                    _newcustomerCooldown -= Time.deltaTime;
+                    if (_newcustomerCooldown < 0) {
+                        _newcustomerCooldown = queueManager.SecondsBetweenSpawns;
                         queueManager.SpawnNewCustomer();
                     }
                     return;
                 case GameState.Countdown:
-                    gamestartCountdown -= Time.deltaTime;
-                    countdownLabel.text = Mathf.CeilToInt(gamestartCountdown).ToString();
+                    _gamestartCountdown -= Time.deltaTime;
+                    countdownLabel.text = Mathf.CeilToInt(_gamestartCountdown).ToString();
 
-                    if (gamestartCountdown <= 0)
+                    if (_gamestartCountdown <= 0)
                     {
                         countdownLabel.enabled = false;
                         InitializeMainGame();

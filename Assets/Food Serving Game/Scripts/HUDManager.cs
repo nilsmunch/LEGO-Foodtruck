@@ -7,23 +7,23 @@ namespace LegoInterview
 {
     public class HUDManager : MonoBehaviour
     {
-        static public HUDManager manager;
+        static HUDManager _manager;
         public Image interactionImage;
         void Awake()
         {
-            manager = this;
+            _manager = this;
             interactionImage.enabled = false;
         }
 
         public static void ClearInteraction()
         {
-            manager.interactionImage.enabled = false;
+            _manager.interactionImage.enabled = false;
         }
 
         public static void DisplayInteraction(Sprite actionSprite)
         {
-            manager.interactionImage.enabled = true;
-            manager.interactionImage.sprite = actionSprite;
+            _manager.interactionImage.enabled = true;
+            _manager.interactionImage.sprite = actionSprite;
         }
 
     }
